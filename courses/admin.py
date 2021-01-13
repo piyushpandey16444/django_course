@@ -1,3 +1,5 @@
 from django.contrib import admin
+from courses.models.course_model import Course
 
-# Register your models here.
+
+admin.site.register(Course)
