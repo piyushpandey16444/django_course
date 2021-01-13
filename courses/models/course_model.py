@@ -11,3 +11,23 @@ class Course(models.Model):
     thumbnail = models.ImageField(upload_to="files/thumbnails")
     resource = models.FileField(upload_to="files/resources")
     length = models.IntegerField(null=False)
+
+
+class CourseProperty(models.Model):
+    description = models.CharField(max_length=256, null=False)
+    course_id = models.ForeignKey(Course, null=False, on_delete=models.CASCADE)
+
+    class Meta:
+        abstract = True
+
+
+class Tag(CourseProperty):
+    pass
+
+
+class Prerequisite(CourseProperty):
+    pass
+
+
+class Learning(CourseProperty):
+    pass
