@@ -8,3 +8,6 @@ class Video(models.Model):
     serial_number = models.IntegerField(null=False)
     video_url = models.CharField(max_length=256, null=False)
     is_preview = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title

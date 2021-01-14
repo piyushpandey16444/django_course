@@ -12,6 +12,9 @@ class Course(models.Model):
     resource = models.FileField(upload_to="files/resources")
     length = models.IntegerField(null=False)
 
+    def __str__(self):
+        return self.name
+
 
 class CourseProperty(models.Model):
     description = models.CharField(max_length=256, null=False)

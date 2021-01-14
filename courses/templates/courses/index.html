@@ -1,0 +1,32 @@
+{% extends "courses/base.html" %}
+
+{% block title %}
+  Home Page
+{% endblock title %}
+
+{% block content %}
+    <div class="container-fluid border border-success">
+        <div class="row d-flex justify-content-evenly mx-auto mt-4 mb-4">
+            {% for course in courses %}
+            <div class="card p-0" style="width: 18rem;">
+                <img class="rounded-1" src="https://m.media-amazon.com/images/I/71RzVMU1xAL._AC_UY218_.jpg" class="card-img-top" alt="www">
+                <div class="card-body">
+                    <h5 class="card-title">{{ course.name }}</h5>
+                    <p class="card-text">{{ course.description }}</p>
+                </div>
+
+                <!-- card footer -->
+                <div class="card-footer text-center border-light d-flex justify-content-around" style="width: 100%;"> 
+                    <button class="btn btn-primary btn-sm float-left"> 
+                        Show More
+                    </button> 
+                    <button class="btn btn-primary btn-sm float-right"> 
+                        Enroll Now
+                    </button> 
+                </div>
+
+            </div> 
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
