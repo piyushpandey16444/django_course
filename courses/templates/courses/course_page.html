@@ -1,0 +1,10 @@
+{% extends "courses/base.html" %}
+{% block title %}
+  Course Details
+{% endblock title %}
+
+{% block content %}
+    {{course_detail.name }}
+    {{course_detail.price }}
+    {{course_detail.thumbnail.url }}
+{% endblock content %}

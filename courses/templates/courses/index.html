@@ -17,7 +17,7 @@
         <div class="row d-flex justify-content-evenly mx-auto mt-4 mb-4">
             {% for course in courses %}
             <div class="card p-0" style="width: 18rem;">
-                <img class="rounded-1" src="https://m.media-amazon.com/images/I/71RzVMU1xAL._AC_UY218_.jpg" class="card-img-top" alt="www">
+                <img style="height: 18rem; width: 100%" src="{{course.thumbnail.url }}" class="p-0 m-0 card-img-top" alt="image">
                 <div class="card-body" style="padding-bottom: 0;  padding-top: 1rem; padding-left: 1rem; padding-right: 1rem;">
                     <h5 class="card-title">{{ course.name }}</h5>
                     <p class="card-text">{{ course.description }}<br>
@@ -33,9 +33,9 @@
 
                 <!-- card footer -->
                 <div class="card-footer text-center d-flex justify-content-around" style="width: 100%;"> 
-                    <button class="btn btn-primary btn-sm float-left"> 
+                    <a href="{% url 'course' course.slug %}" class="btn btn-primary btn-sm float-left"> 
                         Show More
-                    </button> 
+                    </a> 
                     <button class="btn btn-primary btn-sm float-right"> 
                         Enroll Now
                     </button> 
