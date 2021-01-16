@@ -8,8 +8,14 @@
 
 <style>
     .price{
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 500;
+    }
+
+    .card:hover {
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     }
 </style>
 
@@ -17,10 +23,10 @@
         <div class="row d-flex justify-content-evenly mx-auto mt-4 mb-4">
             {% for course in courses %}
             <div class="card p-0" style="width: 18rem;">
-                <img style="height: 18rem; width: 100%" src="{{course.thumbnail.url }}" class="p-0 m-0 card-img-top" alt="image">
+                <img style="height: 16rem; width: 100%" src="{{course.thumbnail.url }}" class="p-0 m-0 card-img-top" alt="image">
                 <div class="card-body" style="padding-bottom: 0;  padding-top: 1rem; padding-left: 1rem; padding-right: 1rem;">
-                    <h5 class="card-title">{{ course.name }}</h5>
-                    <p class="card-text">{{ course.description }}<br>
+                    <h5 class="card-title" >{{ course.name }}</h5>
+                    <p class="card-text" style="font-size: 14px;">{{ course.description }}<br>
                         Save {{ course.discount }}%<br>
                         <span class="price" >
                             <del>{% get_decimal course.price as currency %}{{ currency|currency_value }}</del>
