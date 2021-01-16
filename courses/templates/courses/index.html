@@ -1,22 +1,38 @@
 {% extends "courses/base.html" %}
-
+{% load custom_templatetags %}
 {% block title %}
   Home Page
 {% endblock title %}
 
 {% block content %}
-    <div class="container-fluid border border-success">
+
+<style>
+    .price{
+        font-size: 20px;
+        font-weight: 500;
+    }
+</style>
+
+    <div class="container-fluid">
         <div class="row d-flex justify-content-evenly mx-auto mt-4 mb-4">
             {% for course in courses %}
             <div class="card p-0" style="width: 18rem;">
                 <img class="rounded-1" src="https://m.media-amazon.com/images/I/71RzVMU1xAL._AC_UY218_.jpg" class="card-img-top" alt="www">
-                <div class="card-body">
+                <div class="card-body" style="padding-bottom: 0;  padding-top: 1rem; padding-left: 1rem; padding-right: 1rem;">
                     <h5 class="card-title">{{ course.name }}</h5>
-                    <p class="card-text">{{ course.description }}</p>
+                    <p class="card-text">{{ course.description }}<br>
+                        Save {{ course.discount }}%<br>
+                        <span class="price" >
+                            <del>{% get_decimal course.price as currency %}{{ currency|currency_value }}</del>
+                            &nbsp;
+                            {% calculate_discount course.price course.discount as calculated_currency %}
+                            {{ calculated_currency|currency_value }}
+                        </span>
+                    </p>
                 </div>
 
                 <!-- card footer -->
-                <div class="card-footer text-center border-light d-flex justify-content-around" style="width: 100%;"> 
+                <div class="card-footer text-center d-flex justify-content-around" style="width: 100%;"> 
                     <button class="btn btn-primary btn-sm float-left"> 
                         Show More
                     </button> 
