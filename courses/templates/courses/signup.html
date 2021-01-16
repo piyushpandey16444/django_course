@@ -1,0 +1,29 @@
+{% extends "courses/base.html" %}
+{% load custom_templatetags %}
+{% block title %}
+  Home Page
+{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div style="height: 20rem; width:30rem" class="border border-info mt-5 mx-auto">
+        <form class="" action="{% url 'signup' %}" method="post">
+            <div class="d-flex justify-content-around p-3">
+                Username: {{form.username}}
+            </div>
+
+            <div class="d-flex justify-content-around p-3">
+                Password: {{form.password1}}
+            </div>
+
+            <div class="d-flex justify-content-around p-3">
+                Password Confirm: {{form.password2}}
+            </div>
+            <div class="mx-auto">
+                <button class="btn btn-info" >Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
